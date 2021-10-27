@@ -1,0 +1,12 @@
+<a routerLink="/cart">Krepšelis: {{cart.length}}</a><br>
+Išpardavimas baigsis: {{saleEndDate | date : "YYYY-MM-dd"}}
+
+<ng-container *ngFor="let item of items">
+  <app-item
+    [item]="item"
+    (onItemAdded)="addToCart(item.id)"
+    (onItemRemoved)="removeFromCart(item.id)"
+  ></app-item>
+</ng-container>
+
+<button (click)="generateCSV()">Generuoti CSV</button>
