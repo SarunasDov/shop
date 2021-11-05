@@ -3,7 +3,13 @@ export class Item {
     public readonly id: number,
     public name: string,
     public price: number,
-    public discount: number = 0
+    public isOnSale: boolean = false
   ) {
   }
+}
+
+export interface ItemWithoutId {
+  name: string;
+  price: number;
+  isOnSale: boolean;
 }

@@ -1,0 +1,29 @@
+<!--<form #formosKintamasis="ngForm">-->
+<!--  <input name="laukelioPavadinimas" ngModel>-->
+<!--  <div>{{formosKintamasis.controls.laukelioPavadinimas.value}}</div>-->
+<!--  <button>OK</button>-->
+<!--</form>-->
+
+<form #itemForm="ngForm">
+  <input #itemNameInput="ngModel"
+         name="itemName"
+         placeholder="Pavadinimas"
+         ngModel
+         required
+         minlength="3"
+         [ngClass]="{
+            greenBorder: itemNameInput.valid,
+            redBorder: itemNameInput.invalid && itemNameInput.touched
+         }">
+  <br>
+
+  <input type="number" placeholder="Kaina" name="itemPrice" ngModel min="1" required #itemPriceInput="ngModel">
+  <div *ngIf="itemPriceInput.invalid && itemPriceInput.touched">Neteisingai įvesta kaina</div>
+  <br>
+
+  <input type="checkbox" ngModel name="itemDiscount" id="itemDiscount"> <label for="itemDiscount">Taikoma nuolaida</label> <br>
+
+  <button (click)="createItem(itemForm)">Pridėti</button>
+</form>
+
+<a routerLink="/">Grįžti į sąrašą</a>

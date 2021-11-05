@@ -1,3 +1,5 @@
+<a routerLink="/add-item">Pridėti prekę</a><br>
+
 <a routerLink="/cart">Krepšelis: {{cartService.cart.length}}</a><br>
 Išpardavimas baigsis: {{saleEndDate | date : "YYYY-MM-dd"}}
 
@@ -12,3 +14,9 @@ Išpardavimas baigsis: {{saleEndDate | date : "YYYY-MM-dd"}}
 <button (click)="generateCSV()">Generuoti CSV</button>
 
 <app-cart></app-cart>
+
+<br>
+<button (click)="itemService.getChuckNorrisJoke()">Gauti juokelį</button>
+
+<br>
+<button (click)="itemService.getItems()">Gauti prekes</button>
